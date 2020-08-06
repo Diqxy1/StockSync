@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Estoque Sync</title>
+
+    {% include 'loaders/styles.html' %}
+
+</head>
+
+<body class="sync-bg--login">
+
+  <div class="container">
+      {% block content %} {% endblock %}
+  </div>
+
+  {% include 'loaders/scripts.html' %}
+
+</body>
+
+</html>
