@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 
-# Create your views here.
+
+def home_or_login(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('accounts:home'))
+    else:
+        return redirect(reverse('accounts:login'))

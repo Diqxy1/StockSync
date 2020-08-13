@@ -1,0 +1,39 @@
+{% extends 'bases/base_dashboard.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="d-flex justify-content-between">
+    <h1 class="h3 mb-4 text-gray-800">Nova categoria</h1>
+    <div>
+        <a href="{% url 'categories:list' %}" class="btn btn-primary shadow">
+            <i class="fas fa-list"></i> Ver categorias
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="form-group col-12 col-md-4">
+                            <label for="{{ form.name.auto_id }}">{{ form.name.label }}</label>
+                            {% render_field form.name class="form-control" %}
+                        </div>
+
+                        <div class="form-group col-12">
+                            <button type="submit" class="btn btn-success float-right">
+                                <i class="fas fa-check"></i> Salvar
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
