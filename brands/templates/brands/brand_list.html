@@ -2,10 +2,10 @@
 
 {% block content %}
 <div class="d-flex justify-content-between">
-    <h1 class="h3 mb-4 text-gray-800">Categorias</h1>
+    <h1 class="h3 mb-4 text-gray-800">Marcas</h1>
     <div>
-        <a href="{% url 'categories:create' %}" class="btn btn-success shadow">
-            <i class="fas fa-plus"></i> Nova Categoria
+        <a href="{% url 'brands:create' %}" class="btn btn-success shadow">
+            <i class="fas fa-plus"></i> Nova Marca
         </a>
     </div>
 </div>
@@ -43,20 +43,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for category in object_list %}
+                            {% for brand in object_list %}
                             <tr>
-                                <td>{{ category.name }}</td>
-                                <td>{{ category.created_at }}</td>
-                                <td>{{ category.updated_at }}</td>
+                                <td>{{ brand.name }}</td>
+                                <td>{{ brand.created_at }}</td>
+                                <td>{{ brand.updated_at }}</td>
                                 <td>
                                     <div>
-                                        <a href="{% url 'categories:update' category.pk %}" class="btn btn-warning btn-sm">
+                                        <a href="{% url 'brands:update' brand.pk %}" class="btn btn-warning btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{category.pk}}">
+                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{brand.pk}}">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                        {% include 'categories/components/category_delete_modal.html' %}
+                                        {% include 'brands/components/brand_delete_modal.html' %}
                                     </div>
                                 </td>
                             </tr>

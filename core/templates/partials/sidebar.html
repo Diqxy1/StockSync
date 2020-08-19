@@ -27,7 +27,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{% url 'products:list' %}">
             <i class="fas fa-fw fa-box"></i>
             <span>Produtos</span>
         </a>
@@ -37,6 +37,13 @@
         <a class="nav-link" href="{% url 'categories:list' %}">
             <i class="fas fa-fw fa-tags"></i>
             <span>Categorias</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'brands:list' %}">
+            <i class="fas fa-fw fa-tags"></i>
+            <span>Marcas</span>
         </a>
     </li>
 

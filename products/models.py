@@ -7,7 +7,7 @@ class Product(models.Model):
 
     name = models.CharField('Nome', max_length=120)
     description = models.TextField('Descrição', null=True, blank=True)
-    brand = models.ManyToManyField(Brand, verbose_name='Marca', blank=True)
+    brands = models.ManyToManyField(Brand, verbose_name='Marca', blank=True)
     category = models.ForeignKey(Category, verbose_name='Categoria', null=True, blank=True, on_delete=models.SET_NULL)
 
     # timestamps

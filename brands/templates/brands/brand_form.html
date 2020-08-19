@@ -5,10 +5,10 @@
 <div class="d-flex justify-content-between">
     <h1 class="h3 mb-4 text-gray-800">
         {% if request.resolver_match.url_name == 'create' %} Nova {% else %} Editar {% endif %}
-        Categoria
+        Marca
     </h1>
     <div>
-        <a href="{% url 'categories:list' %}" class="btn btn-primary shadow">
+        <a href="{% url 'brands:list' %}" class="btn btn-primary shadow">
             <i class="fas fa-list"></i> Ver categorias
         </a>
     </div>
