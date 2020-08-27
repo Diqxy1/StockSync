@@ -1,0 +1,48 @@
+{% extends 'bases/base_dashboard.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="d-flex justify-content-between">
+    <h1 class="h3 mb-4 text-gray-800">
+        Baixa de produto em estoque | {{ stock.product.name }}
+    </h1>
+    <div>
+        <a href="{% url 'stock:list' %}" class="btn btn-primary shadow">
+            <i class="fas fa-list"></i> Ver Estoque
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="row">
+
+                        <div class="form-group col-12 col-md-3">
+                            <label for="{{ form.quantity.auto_id }}">{{ form.quantity.label }}</label>
+                            {% render_field form.quantity class="form-control" max=stock.quantity %}
+                        </div>
+
+                        <div class="form-group col-12 col-md-3">
+                            <label for="{{ form.moviment_type.auto_id }}">{{ form.moviment_type.label }}</label>
+                            {% render_field form.moviment_type class="form-control"%}
+                        </div>
+
+                        <div class="form-group col-12">
+                            <button type="submit" class="btn btn-success float-right">
+                                <i class="fas fa-check"></i> Salvar
+                            </button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
