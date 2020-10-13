@@ -1,0 +1,68 @@
+{% extends 'bases/base_dashboard.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between">
+    <h1 class="h3 mb-4 text-gray-800">Saida de Estoque</h1>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-12 col-md-8"></div>
+                    <div class="col-12 col-md-4">
+                        <form method="get" class="form-inline float-right">
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                    placeholder="Pesquisar" name="search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Funcionario</th>
+                                <th>Produto</th>
+                                <th>Movimento</th>
+                                <th>Quantidade</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for moviment in object_list %}
+                            <tr>
+                                <td>{{ moviment.author }}</td>
+                                <td>{{ moviment.product_stock.product }}</td>
+                                <td>{{ moviment.get_moviment_type_display }}</td>
+                                <td>{{ moviment.quantity }}</td>
+                                <td>{{ moviment.created_at }}</td>
+                            </tr>
+                    {% empty %}
+                    <tr>
+                        <td class="text-center" colspan="100%">
+                            Nenhum dado cadastrado
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock %}

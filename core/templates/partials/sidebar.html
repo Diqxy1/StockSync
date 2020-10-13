@@ -33,6 +33,13 @@
         </a>
     </li>
 
+    <li class="nav-item {% if request.resolver_match.app_name == 'moviments' %} active {% endif %}">
+        <a class="nav-link" href="{% url 'moviments:list' %}">
+            <i class="fas fa-receipt"></i>
+            <span>Saida</span>
+        </a>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-boxes"></i>

@@ -3,7 +3,6 @@ from django.db import models
 from stock.models import ProductStock
 from accounts.models import User
 
-
 class ProductStockMoviment(models.Model):
 
     class ProductStockMovimentType(models.IntegerChoices):
@@ -22,6 +21,7 @@ class ProductStockMoviment(models.Model):
 
     def __str__(self):
         return str(self.created_at)
+
 
     class Meta:
         verbose_name = 'Movimentação de produto em estoque'

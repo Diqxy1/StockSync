@@ -4,9 +4,8 @@ from django.views.generic import ListView, CreateView, UpdateView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import ProductStock
-from .froms import ProductStockForm
+from .forms import ProductStockForm
 from moviments.forms import ProductStockMovimentForm
-
 
 
 class ProductStockList(LoginRequiredMixin, ListView):
