@@ -27,3 +27,8 @@ class ProductStockMoviment(models.Model):
         verbose_name = 'Movimentação de produto em estoque'
         verbose_name_plural = 'Movimentações de produtos em estoque'
         ordering = ['-created_at']
+
+
+    @property
+    def total_price(self):
+        return self.product_stock.price * self.quantity

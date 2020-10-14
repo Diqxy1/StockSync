@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="d-flex justify-content-between">
-    <h1 class="h3 mb-4 text-gray-800">Saida de Estoque</h1>
+    <h1 class="h3 mb-4 text-gray-800">Entrada de Estoque</h1>
 </div>
 
 <div class="row">
@@ -15,7 +15,7 @@
                         <form method="get" class="form-inline float-right">
                             <div class="input-group">
                                 <input type="text" class="form-control"
-                                    placeholder="Pesquisar" name="search">
+                                placeholder="Pesquisar" name="search">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
                                         <i class="fas fa-search"></i>
@@ -33,38 +33,40 @@
                             <tr>
                                 <th>Funcionario</th>
                                 <th>Produto</th>
-                                <th>Movimento</th>
+                                <th>Categoria</th>
+                                <th>Marca</th>
                                 <th>Quantidade</th>
+                                <th>Preço</th>
                                 <th>Data</th>
-                                <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for moviment in object_list %}
+                            {% for stock in stocks %}
                             <tr>
-                                <td>{{ moviment.author }}</td>
-                                <td>{{ moviment.product_stock.product }}</td>
-                                <td>{{ moviment.get_moviment_type_display }}</td>
-                                <td>{{ moviment.quantity }}</td>
-                                <td>{{ moviment.created_at }}</td>
-                                <td>{{ moviment.total_price }}</td>
+                                <td>{{ stock.author }}</td>
+                                <td>{{ stock.product.name }}</td>
+                                <td>{{ stock.product.category.name }}</td>
+                                <td>{{ stock.brand.name }}</td>
+                                <td>{{ stock.quantity }}</td>
+                                <td>R$ {{ stock.price }}</td>
+                                <td>{{ stock.created_at }}</td>
                             </tr>
-                    {% empty %}
-                    <tr>
-                        <td class="text-center" colspan="100%">
-                            Nenhum dado cadastrado
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                            {% empty %}
+                            <tr>
+                                <td class="text-center" colspan="100%">
+                                    Nenhum dado cadastrado
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+
+            </div>
         </div>
     </div>
-    <div class="card-footer">
-
-    </div>
-</div>
-</div>
 </div>
 
 {% endblock %}
