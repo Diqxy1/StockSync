@@ -1,5 +1,5 @@
 {% extends 'bases/base_dashboard.html' %}
-
+{% load l10n %}
 {% block content %}
 <div class="d-flex justify-content-between">
     <h1 class="h3 mb-4 text-gray-800">Saida de Estoque</h1>
@@ -47,7 +47,7 @@
                                 <td>{{ moviment.get_moviment_type_display }}</td>
                                 <td>{{ moviment.quantity }}</td>
                                 <td>{{ moviment.created_at }}</td>
-                                <td>{{ moviment.total_price }}</td>
+                                <td>{{ moviment.total_price|floatformat:2 }}</td>
                             </tr>
                     {% empty %}
                     <tr>

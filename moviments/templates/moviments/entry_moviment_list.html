@@ -41,15 +41,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for stock in stocks %}
+                            {% for moviment in moviments %}
                             <tr>
-                                <td>{{ stock.author }}</td>
-                                <td>{{ stock.product.name }}</td>
-                                <td>{{ stock.product.category.name }}</td>
-                                <td>{{ stock.brand.name }}</td>
-                                <td>{{ stock.quantity }}</td>
-                                <td>R$ {{ stock.price }}</td>
-                                <td>{{ stock.created_at }}</td>
+                                <td>{{ moviment.author }}</td>
+                                <td>{{ moviment.product_stock.product.name }}</td>
+                                <td>{{ moviment.product_stock.product.category.name }}</td>
+                                <td>{{ moviment.product_stock.brand.name }}</td>
+                                <td>{{ moviment.product_stock.quantity }}</td>
+                                <td>R$ {{ moviment.product_stock.price }}</td>
+                                <td>{{ moviment.product_stock.created_at }}</td>
                             </tr>
                             {% empty %}
                             <tr>

@@ -120,3 +120,7 @@ AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = 'accounts:home'
 LOGOUT_URL = 'accounts:logout'
+
+#Formating DecimalField
+THOUSAND_SEPARATOR='.',
+USE_THOUSAND_SEPARATOR=True

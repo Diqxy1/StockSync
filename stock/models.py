@@ -8,7 +8,7 @@ class ProductStock(models.Model):
     product = models.ForeignKey(Product, verbose_name='Produto', on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, verbose_name='Marca', null=True, on_delete=models.SET_NULL)
     quantity = models.PositiveIntegerField('Quantidade')
-    original_quantity = models.PositiveIntegerField('Quantidade Original', null=True)
+    new_quantity = models.PositiveIntegerField('Quantidade no estoque')
     lot = models.CharField('Lote', max_length=100)
     validity = models.DateField('Validade', null=True, blank=True)
     price = models.DecimalField('Preço', max_digits=9, decimal_places=2)
@@ -25,3 +25,9 @@ class ProductStock(models.Model):
         verbose_name = 'Produto em estoque'
         verbose_name_plural = 'Produtos em estoque'
 
+
+    @property
+    def empyt_quantity(self):
+        if self.new_quantity == 0:
+            self.new_quantity = self.quantity
+        return self.new_quantity

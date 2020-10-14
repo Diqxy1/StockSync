@@ -44,7 +44,9 @@ class ProductStockSub(LoginRequiredMixin, TemplateView):
             form.instance.product_stock = stock
             form.instance.author = self.request.user
             moviment = form.save()
-            stock.quantity = stock.quantity - moviment.quantity
+            if stock.new_quantity == 0:
+                stock.new_quantity = stock.quantity
+            stock.new_quantity = stock.new_quantity - moviment.quantity
             stock.save()
             return redirect(reverse_lazy('stock:sub', kwargs={'pk': self.kwargs['pk']}))
         return self.render_to_response(context)
