@@ -19,6 +19,6 @@ class StockEntryMoviment(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        #context['stocks'] = ProductStock.objects.all()
-        context['moviments'] = ProductStockMoviment.objects.all()
+        context['stocks'] = ProductStock.objects.all()
+        #context['moviments'] = ProductStockMoviment.objects.all()
         return context

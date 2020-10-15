@@ -19,6 +19,12 @@ class ProductStockCreate(LoginRequiredMixin, CreateView):
     form_class = ProductStockForm
     success_url = reverse_lazy('stock:list')
 
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return super().form_valid(form)
+
 
 class ProductStockUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'stock/stock_form.html'
