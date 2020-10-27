@@ -10,6 +10,13 @@ from .forms import ProductForm
 class ProductList(LoginRequiredMixin, ListView):
     model = Product
 
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        search = self.request.GET.get('search', False)
+        if search:
+            queryset = queryset.filter(name__contains=search)
+        return queryset
+
 
 class ProductCreate(LoginRequiredMixin, CreateView):
     model = Product

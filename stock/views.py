@@ -12,6 +12,13 @@ class ProductStockList(LoginRequiredMixin, ListView):
     template_name = 'stock/stock_list.html'
     model = ProductStock
 
+    def get_queryset(self):
+        queryset = ProductStock.objects.all()
+        search = self.request.GET.get('search', False)
+        if search:
+            queryset = queryset.filter(product__name__contains=search)
+        return queryset
+
 
 class ProductStockCreate(LoginRequiredMixin, CreateView):
     template_name = 'stock/stock_form.html'
